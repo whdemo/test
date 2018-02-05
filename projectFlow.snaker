@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<process displayName="社会投资项目流程" name="projectFlow">
+<start displayName="start1" layout="6,205,-1,-1" name="start1">
+<transition g="" name="transition1" offset="0,0" to="task1"/>
+</start>
+<task autoExecute="Y" displayName="紧密跟踪项目" layout="103,204,92,52" name="task1" performType="ANY" taskType="Major">
+<transition g="" name="transition13" offset="0,0" to="decision3"/>
+</task>
+<end displayName="end1" layout="1344,205,-1,-1" name="end1"/>
+<task autoExecute="Y" displayName="签约项目" layout="366,203,109,52" name="task3" performType="ANY" taskType="Major">
+<transition g="" name="transition3" offset="0,0" to="decision1"/>
+</task>
+<decision displayName="decision1" expr="${depHeadDec== '0' ? 'transition4':'transition11'  }" layout="515,205,-1,-1" name="decision1">
+<transition displayName="完成" g="" name="transition4" offset="0,0" to="task4"/>
+</decision>
+<task autoExecute="Y" displayName="5同时+项目" layout="638,202,133,52" name="task4" performType="ANY" taskType="Major">
+<transition g="" name="transition5" offset="0,0" to="decision2"/>
+</task>
+<decision displayName="decision2" expr="${zhbDec=='0' ? 'transition2' : 'transition10' }" layout="787,205,-1,-1" name="decision2">
+<transition displayName="完成" g="" name="transition2" offset="0,0" to="task2"/>
+</decision>
+<decision displayName="decision3" expr="${depHeadDec== '0' ? 'transition4':'transition11'  }" layout="245,205,-1,-1" name="decision3">
+<transition displayName="完成" g="" name="transition6" offset="0,0" to="task3"/>
+</decision>
+<task autoExecute="Y" displayName="动工项目" layout="894,202,-1,-1" name="task2" performType="ANY" taskType="Major">
+<transition g="" name="transition7" offset="0,0" to="decision4"/>
+</task>
+<task autoExecute="Y" displayName="竣工项目" layout="1149,204,-1,-1" name="task5" performType="ANY" taskType="Major">
+<transition displayName="完成" g="" name="transition9" offset="0,0" to="end1"/>
+</task>
+<decision displayName="decision4" expr="${depHeadDec== '0' ? 'transition4':'transition11'  }" layout="1010,205,-1,-1" name="decision4">
+<transition displayName="完成" g="" name="transition8" offset="0,0" to="task5"/>
+</decision>
+</process>
